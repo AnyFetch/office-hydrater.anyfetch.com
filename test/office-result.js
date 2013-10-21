@@ -17,7 +17,7 @@ describe('Test office results', function() {
         throw err;
       }
       document.should.have.property('metadatas');
-      //document.should.have.property('binary_document_type', "office-html");
+      document.should.have.property('binary_document_type', "document::office");
       document.metadatas.should.have.property('html');
       document.metadatas.html
         .should.include('Game Design');
@@ -30,7 +30,7 @@ describe('Test office results', function() {
         throw err;
       }
       document.should.have.property('metadatas');
-      //document.should.have.property('binary_document_type', "office-html");
+      document.should.have.property('binary_document_type', "document::office");
       document.metadatas.should.have.property('html');
       document.metadatas.html
         .should.include('purpose of this document');
