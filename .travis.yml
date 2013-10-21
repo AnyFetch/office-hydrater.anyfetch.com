@@ -14,8 +14,4 @@ before_script:
   - npm install --dev
 
 script: 
-  - loffice --headless --convert-to html --outdir /tmp ./test/samples/test1.docx
-  - cat /tmp/test1.html
-  - loffice --headless --convert-to html --outdir /tmp ./test/samples/test2.pptx
-  - cat /tmp/test2.html
   - npm test
