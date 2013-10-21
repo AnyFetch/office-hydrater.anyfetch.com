@@ -4,17 +4,14 @@ node_js:
   - "0.10"
 
 before_install:
-  - sudo apt-add-repository ppa:libreoffice/libreoffice-4-0 --yes
+  - sudo add-apt-repository ppa:libreoffice/libreoffice-4-0 --yes
   - sudo apt-get update
 
 install:
-  - sudo apt-get install -qq python-software-properties
   - sudo apt-get install -qq libreoffice
   - npm install
 
 before_script:
-  - ls -Al $HOME
-  - sudo chown -vR $USER:$USER $HOME/.openoffice.org2/
   - npm install --dev
 
 script: "npm test"
