@@ -13,6 +13,7 @@ install:
   - npm install
 
 before_script:
+  - chown -vR $USER:$USER $HOME/.config
   - npm install --dev
 
 script: "npm test"
