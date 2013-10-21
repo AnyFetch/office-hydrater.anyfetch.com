@@ -13,4 +13,6 @@ install:
 before_script:
   - npm install --dev
 
-script: "npm test"
+script: 
+  - loffice --headless --convert-to html --outdir /tmp ./test/samples/test1.pptx
+  - npm test
