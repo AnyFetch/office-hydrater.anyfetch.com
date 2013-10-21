@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - "0.10"
 
+before_install:
+  - sudo add-apt-repository ppa:libreoffice/libreoffice-4-0 --yes
+
 install:
   - sudo apt-get install -qq libreoffice
   - npm install
