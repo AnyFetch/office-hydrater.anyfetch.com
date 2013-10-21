@@ -4,14 +4,15 @@ node_js:
   - "0.10"
 
 before_install:
-  - "sudo add-apt-repository ppa:coolwanglu/pdf2htmlex --yes"
-  - "sudo apt-get update -qq"
+  - sudo apt-add-repository ppa:libreoffice/libreoffice-4-0
+  - sudo apt-get update
 
 install:
-  - "sudo apt-get install -qq pdf2htmlex"
-  - "npm install"
+  - sudo apt-get install -qq python-software-properties
+  - sudo apt-get install -qq libreoffice
+  - npm install
 
 before_script:
-  - "npm install --dev"
+  - npm install --dev
 
 script: "npm test"
