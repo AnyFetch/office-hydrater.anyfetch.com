@@ -13,7 +13,8 @@ install:
   - npm install
 
 before_script:
-  - chown -vR $USER:$USER $HOME/.config
+  - ls -Al $HOME
+  - sudo chown -vR $USER:$USER $HOME/.openoffice.org2/
   - npm install --dev
 
 script: "npm test"
