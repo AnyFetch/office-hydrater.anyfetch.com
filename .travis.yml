@@ -15,8 +15,7 @@ before_script:
   - npm install --dev
 
 script: 
-  - ls /tmp/
-  - loffice --headless --norestore --nolockcheck --convert-to html --outdir /tmp/ test/samples/test1.docx
-  - echo $?
-  - ls /tmp/
+  - ls
+  - loffice --headless --norestore --nolockcheck --convert-to html test/samples/test1.docx
+  - ls
   - npm test
