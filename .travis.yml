@@ -15,7 +15,4 @@ before_script:
   - npm install --dev
 
 script: 
-  - ls
-  - loffice --headless --norestore --nolockcheck --convert-to html test/samples/test1.docx
-  - ls
   - npm test
