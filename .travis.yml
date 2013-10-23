@@ -5,6 +5,7 @@ node_js:
 
 before_install:
   - sudo add-apt-repository ppa:libreoffice/libreoffice-4-0 --yes
+  - sudo apt-get update
 
 install:
   - sudo apt-get install -qq libreoffice
