@@ -15,7 +15,7 @@ before_script:
 
 script: 
   - ls /tmp/
-  - loffice
   - loffice --headless --norestore --nolockcheck --convert-to html --outdir /tmp/ test/samples/test1.docx
+  - echo $?
   - ls /tmp/
   - npm test
