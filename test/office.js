@@ -38,6 +38,7 @@ describe('Test office results', function() {
       document.should.have.property('binary_document_type', "document");
       document.datas.should.have.property('html');
       document.datas.html.should.include('Sample document created with MS Word');
+      document.datas.html.should.include('[image stripped]');
       done();
     });
   });
