@@ -4,15 +4,15 @@ node_js:
   - "0.10"
 
 before_install:
-  - sudo add-apt-repository ppa:libreoffice/libreoffice-4-1 --yes
+  - sudo add-apt-repository ppa:libreoffice/libreoffice-4-0 --yes
   - sudo apt-get update
 
 install:
   - sudo apt-get install -qq libreoffice
-  - loffice --version
   - npm install
 
 before_script:
+  - loffice --version
   - npm install --dev
 
 script: 
