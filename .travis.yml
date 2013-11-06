@@ -9,6 +9,7 @@ before_install:
 
 install:
   - sudo apt-get install -qq libreoffice
+  - loffice --version
   - npm install
 
 before_script:
