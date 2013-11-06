@@ -24,12 +24,12 @@ describe('Test office results', function() {
     });
   });
 
-  it('returns the correct informations for image docx', function(done) {
+  it('returns the correct informations for image doc', function(done) {
     var document = {
       datas: {},
     };
 
-    office(__dirname + "/samples/image.docx", document, function(err, document) {
+    office(__dirname + "/samples/image.doc", document, function(err, document) {
       if(err) {
         throw err;
       }
