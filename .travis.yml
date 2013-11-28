@@ -12,6 +12,7 @@ install:
   - npm install
 
 before_script:
+  - loffice --version
   - npm install --dev
 
 script: 
