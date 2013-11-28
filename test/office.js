@@ -17,7 +17,7 @@ describe('Test office results', function() {
       }
 
       document.should.have.property('datas');
-      document.should.have.property('binary_document_type', "document");
+      document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
       document.datas.html.should.include('purpose of this document');
       done();
@@ -35,7 +35,7 @@ describe('Test office results', function() {
       }
 
       document.should.have.property('datas');
-      document.should.have.property('binary_document_type', "document");
+      document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
       document.datas.html.should.include('Sample document created with MS Word');
       document.datas.html.should.include('[image stripped]');
@@ -54,7 +54,7 @@ describe('Test office results', function() {
       }
 
       document.should.have.property('datas');
-      document.should.have.property('binary_document_type', "document");
+      document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
       document.datas.html.should.include('Game Design');
       done();
