@@ -19,7 +19,6 @@ if(node_env === "production") {
 module.exports = {
   env: node_env,
   port: process.env.PORT || default_port,
-  workers: process.env.WORKERS || 2,
-  office_version: process.env.office_VERSION || default_office_version,
-  concurrency: process.env.office_CONCURRENCY || default_concurrency
+  office_version: process.env.OFFICE_VERSION || default_office_version,
+  concurrency: process.env.OFFICE_CONCURRENCY || default_concurrency
 };

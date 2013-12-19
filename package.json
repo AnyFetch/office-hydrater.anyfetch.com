@@ -1,6 +1,6 @@
 {
   "name": "cluestr-hydrater-office",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Julien Balian  <julien.balian@supinfo.com>",
   "contributors": [],
   "bin": {
@@ -14,7 +14,7 @@
   "main": "./lib/hydrater-office",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papiel/papiel_core"
+    "url": "https://github.com/Papiel/hydrater-office"
   },
   "keywords": [
     "cluestr",
@@ -23,7 +23,6 @@
   ],
   "dependencies": {
     "async": "0.2.x",
-    "sspawn": "0.1.1",
     "cluestr-file-hydrater": "x.x.x",
     "newrelic": "1.x.x"
   },
