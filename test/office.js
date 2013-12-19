@@ -2,7 +2,7 @@
 
 require('should');
 
-var office = require('../lib/hydrater-office');
+var office = require('../lib/');
 
 
 describe('Test office results', function() {

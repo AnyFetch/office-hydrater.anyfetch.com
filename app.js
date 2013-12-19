@@ -4,7 +4,7 @@
 var cluestrFileHydrater = require('cluestr-file-hydrater');
 
 var config = require('./config/configuration.js');
-var office = require('./lib/hydrater-office');
+var office = require('./lib/');
 
 var serverConfig = {
   concurrency: config.concurrency,

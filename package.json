@@ -11,7 +11,7 @@
     "test": "NODE_ENV=test mocha -R spec -t 60000 test/ test/test-*/*",
     "lint": "jshint lib/ test/ config/ bin/"
   },
-  "main": "./lib/hydrater-office",
+  "main": "./lib/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Papiel/hydrater-office"
