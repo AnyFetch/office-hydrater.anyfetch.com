@@ -43,6 +43,42 @@ describe('Test office results', function() {
     });
   });
 
+  it('returns the correct informations for xls', function(done) {
+    var document = {
+      datas: {},
+    };
+
+    office(__dirname + "/samples/test.xls", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      done();
+    });
+  });
+
+  it('returns the correct informations for xlsx', function(done) {
+    var document = {
+      datas: {},
+    };
+
+    office(__dirname + "/samples/test.xlsx", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      done();
+    });
+  });
+
   it.skip('returns the correct informations for pptx', function(done) {
     var document = {
       datas: {}
