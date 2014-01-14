@@ -6,7 +6,10 @@ var office = require('../lib/');
 
 
 describe('Test office results', function() {
+
   it.skip('returns the correct informations for text docx', function(done) {
+  // Somme loffice version generate uppercase markup, some other generate lowercase.
+  // We won't test this here.
     var document = {
       datas: {},
     };
@@ -56,7 +59,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      //it doesn't check html tags cause travis generate <a> and i generate <A>
+      
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
@@ -75,7 +78,6 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      //it doesn't check html tags cause travis generate <a> and i generate <A>
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
@@ -94,7 +96,6 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      //it doesn't check html tags cause travis generate <a> and i generate <A>
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
