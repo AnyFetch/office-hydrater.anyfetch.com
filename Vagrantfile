@@ -5,7 +5,7 @@
 $script = <<SCRIPT
 //>script inline
 sudo apt-get install python-software-properties -y;
-sudo apt-add-repository ppa:libreoffice/libreoffice-4-0;
+sudo apt-add-repository ppa:libreoffice/libreoffice-4-1;
 sudo apt-get update;
 sudo apt-get install libreoffice -y;
 SCRIPT
