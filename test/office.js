@@ -56,6 +56,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
+      //it doesn't check html tags cause travis generate <a> and i generate <A>
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
@@ -74,6 +75,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
+      //it doesn't check html tags cause travis generate <a> and i generate <A>
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
@@ -92,6 +94,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
+      //it doesn't check html tags cause travis generate <a> and i generate <A>
       document.datas.html.should.include('>Fig 2.1</');
       done();
     });
