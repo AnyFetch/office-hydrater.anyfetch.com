@@ -79,6 +79,24 @@ describe('Test office results', function() {
     });
   });
 
+  it('returns the correct informations for ods', function(done) {
+    var document = {
+      datas: {},
+    };
+
+    office(__dirname + "/samples/test.ods", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      done();
+    });
+  });
+
   it.skip('returns the correct informations for pptx', function(done) {
     var document = {
       datas: {}
