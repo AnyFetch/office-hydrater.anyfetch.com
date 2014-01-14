@@ -56,7 +56,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      document.datas.html.should.include('>Fig 2.1</');
       done();
     });
   });
@@ -74,7 +74,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      document.datas.html.should.include('>Fig 2.1</');
       done();
     });
   });
@@ -92,7 +92,7 @@ describe('Test office results', function() {
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
-      document.datas.html.should.include('<A HREF="#table0">Fig 2.1</A><BR>');
+      document.datas.html.should.include('>Fig 2.1</');
       done();
     });
   });
