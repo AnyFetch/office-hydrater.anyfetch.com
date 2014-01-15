@@ -7,11 +7,12 @@ var office = require('../lib/');
 
 describe('Test office results', function() {
 
-  it.skip('returns the correct informations for text docx', function(done) {
+  it('returns the correct informations for text docx', function(done) {
   // Somme loffice version generate uppercase markup, some other generate lowercase.
   // We won't test this here.
     var document = {
       datas: {},
+      path: "/samples/text.docx",
     };
 
     office(__dirname + "/samples/text.docx", document, function(err, document) {
@@ -27,9 +28,10 @@ describe('Test office results', function() {
     });
   });
 
-  it.skip('returns the correct informations for image doc', function(done) {
+  it('returns the correct informations for image doc', function(done) {
     var document = {
       datas: {},
+      path: "/samples/image.doc",
     };
 
     office(__dirname + "/samples/image.doc", document, function(err, document) {
@@ -49,6 +51,7 @@ describe('Test office results', function() {
   it('returns the correct informations for xls', function(done) {
     var document = {
       datas: {},
+      path: "/samples/test.xls",
     };
 
     office(__dirname + "/samples/test.xls", document, function(err, document) {
@@ -65,9 +68,10 @@ describe('Test office results', function() {
     });
   });
 
-  it.skip('returns the correct informations for xlsx', function(done) {
+  it('returns the correct informations for xlsx', function(done) {
     var document = {
       datas: {},
+      path: "/samples/test.xlsx",
     };
 
     office(__dirname + "/samples/test.xlsx", document, function(err, document) {
@@ -83,9 +87,10 @@ describe('Test office results', function() {
     });
   });
 
-  it.skip('returns the correct informations for ods', function(done) {
+  it('returns the correct informations for ods', function(done) {
     var document = {
       datas: {},
+      path: "/samples/test.ods",
     };
 
     office(__dirname + "/samples/test.ods", document, function(err, document) {
