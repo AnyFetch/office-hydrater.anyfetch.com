@@ -48,6 +48,25 @@ describe('Test office results', function() {
     });
   });
 
+  it('returns the correct informations for odt', function(done) {
+    var document = {
+      datas: {},
+      path: "/samples/text.odt",
+    };
+
+    office(__dirname + "/samples/text.odt", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include(' describes many tags and a lot of information that can be');
+      done();
+    });
+  });
+
   it('returns the correct informations for xls', function(done) {
     var document = {
       datas: {},
