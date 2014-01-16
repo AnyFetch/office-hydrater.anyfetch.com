@@ -218,4 +218,8 @@ describe('Test office results', function() {
       done();
     });
   });
+
+  after(function(){
+    apiServer.close();
+  });
 });
