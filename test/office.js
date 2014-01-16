@@ -3,7 +3,7 @@
 require('should');
 
 var office = require('../lib/');
-
+var CluestrClient = require('cluestr');
 
 describe('Test office results', function() {
 
@@ -125,20 +125,34 @@ describe('Test office results', function() {
     });
   });
 
-  it.skip('returns the correct informations for pptx', function(done) {
+  process.env.CLUESTR_SERVER = 'http://localhost:1338';
+  var count = 0;
+  var cb = function(url){
+    if (url.indexOf("/file") !== -1) {
+      count += 1;
+    }
+  };
+  // Create a fake HTTP server
+  var apiServer = CluestrClient.debug.createTestApiServer(cb);
+  apiServer.listen(1338);
+
+  it('returns the correct informations for pptx', function(done) {
     var document = {
-      datas: {}
+      datas: {},
+      metadatas: {},
+      access_token: "123",
+      identifier: "azerty",
     };
 
-    office(__dirname + "/samples/test2.pptx", document, function(err, document) {
+    office(__dirname + "/samples/test.pptx", document, function(err, document) {
       if(err) {
         throw err;
       }
 
       document.should.have.property('datas');
       document.should.have.property('document_type', "document");
-      document.datas.should.have.property('html');
-      document.datas.html.should.include('Game Design');
+      document.metadatas.mime_type.should.equal("application/pdf");
+      count.should.eql(1);
       done();
     });
   });
