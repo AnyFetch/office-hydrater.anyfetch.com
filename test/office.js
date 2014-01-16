@@ -137,6 +137,7 @@ describe('Test office results', function() {
   apiServer.listen(1338);
 
   it('returns the correct informations for pptx', function(done) {
+    count = 0;
     var document = {
       datas: {},
       metadatas: {},
@@ -145,6 +146,50 @@ describe('Test office results', function() {
     };
 
     office(__dirname + "/samples/test.pptx", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.metadatas.mime_type.should.equal("application/pdf");
+      count.should.eql(1);
+      done();
+    });
+  });
+
+  it('returns the correct informations for ppt', function(done) {
+    count = 0;
+    var document = {
+      datas: {},
+      metadatas: {},
+      access_token: "1234",
+      identifier: "azertyu",
+    };
+
+    office(__dirname + "/samples/test.ppt", document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.metadatas.mime_type.should.equal("application/pdf");
+      count.should.eql(1);
+      done();
+    });
+  });
+
+  it('returns the correct informations for odp', function(done) {
+    count = 0;
+    var document = {
+      datas: {},
+      metadatas: {},
+      access_token: "1235",
+      identifier: "azertyui",
+    };
+
+    office(__dirname + "/samples/test.odp", document, function(err, document) {
       if(err) {
         throw err;
       }
