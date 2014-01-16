@@ -3,7 +3,7 @@
 require('should');
 
 var office = require('../lib/');
-var CluestrClient = require('cluestr');
+var anyfetchClient = require('anyfetch');
 
 describe('Test office results', function() {
 
@@ -12,10 +12,12 @@ describe('Test office results', function() {
   // We won't test this here.
     var document = {
       datas: {},
-      path: "/samples/text.docx",
+      metadatas :{
+        path: "/samples/text.docx",
+      }
     };
 
-    office(__dirname + "/samples/text.docx", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -31,10 +33,12 @@ describe('Test office results', function() {
   it('returns the correct informations for image doc', function(done) {
     var document = {
       datas: {},
-      path: "/samples/image.doc",
+      metadatas: {
+        path: "/samples/image.doc",
+      }
     };
 
-    office(__dirname + "/samples/image.doc", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -51,10 +55,12 @@ describe('Test office results', function() {
   it('returns the correct informations for odt', function(done) {
     var document = {
       datas: {},
-      path: "/samples/text.odt",
+      metadatas: {
+        path: "/samples/text.odt",
+      }
     };
 
-    office(__dirname + "/samples/text.odt", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -70,10 +76,12 @@ describe('Test office results', function() {
   it('returns the correct informations for xls', function(done) {
     var document = {
       datas: {},
-      path: "/samples/test.xls",
+      metadatas: {
+        path: "/samples/test.xls",
+      }
     };
 
-    office(__dirname + "/samples/test.xls", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -90,10 +98,12 @@ describe('Test office results', function() {
   it('returns the correct informations for xlsx', function(done) {
     var document = {
       datas: {},
-      path: "/samples/test.xlsx",
+      metadatas: {
+        path: "/samples/test.xlsx",
+      }
     };
 
-    office(__dirname + "/samples/test.xlsx", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -109,10 +119,12 @@ describe('Test office results', function() {
   it('returns the correct informations for ods', function(done) {
     var document = {
       datas: {},
-      path: "/samples/test.ods",
+      metadatas: {
+        path: "/samples/test.ods",
+      }
     };
 
-    office(__dirname + "/samples/test.ods", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -125,7 +137,7 @@ describe('Test office results', function() {
     });
   });
 
-  process.env.CLUESTR_SERVER = 'http://localhost:1338';
+  process.env.ANYFETCH_API_URL = 'http://localhost:1338';
   var count = 0;
   var cb = function(url){
     if (url.indexOf("/file") !== -1) {
@@ -133,19 +145,21 @@ describe('Test office results', function() {
     }
   };
   // Create a fake HTTP server
-  var apiServer = CluestrClient.debug.createTestApiServer(cb);
+  var apiServer = anyfetchClient.debug.createTestApiServer(cb);
   apiServer.listen(1338);
 
   it('returns the correct informations for pptx', function(done) {
     count = 0;
     var document = {
       datas: {},
-      metadatas: {},
+      metadatas: {
+        path: "/samples/test.pptx",
+      },
       access_token: "123",
       identifier: "azerty",
     };
 
-    office(__dirname + "/samples/test.pptx", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -162,12 +176,14 @@ describe('Test office results', function() {
     count = 0;
     var document = {
       datas: {},
-      metadatas: {},
+      metadatas: {
+        path: "/samples/test.ppt",
+      },
       access_token: "1234",
       identifier: "azertyu",
     };
 
-    office(__dirname + "/samples/test.ppt", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
@@ -184,12 +200,13 @@ describe('Test office results', function() {
     count = 0;
     var document = {
       datas: {},
-      metadatas: {},
-      access_token: "1235",
+      metadatas: {
+        path: "/samples/test.odp",
+      },
+      access_token: "12345",
       identifier: "azertyui",
     };
-
-    office(__dirname + "/samples/test.odp", document, function(err, document) {
+    office(__dirname + document.metadatas.path, document, function(err, document) {
       if(err) {
         throw err;
       }
