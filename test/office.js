@@ -53,6 +53,29 @@ describe('Test office documents results', function() {
     });
   });
 
+  it('returns the correct informations for text RTF', function(done) {
+  // Somme loffice version generate uppercase markup, some other generate lowercase.
+  // We won't test this here.
+    var document = {
+      datas: {},
+      metadatas :{
+        path: "/samples/text.RTF",
+      }
+    };
+
+    office(__dirname + document.metadatas.path, document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('purpose of this document');
+      done();
+    });
+  });
+
   it('returns the correct informations for images in doc', function(done) {
     var document = {
       datas: {},
