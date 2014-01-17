@@ -198,7 +198,6 @@ describe('Test office presentation results', function() {
         throw err;
       }
 
-      document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.metadatas.mime_type.should.equal("application/pdf");
       count.should.eql(1);
@@ -222,7 +221,6 @@ describe('Test office presentation results', function() {
         throw err;
       }
 
-      document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.metadatas.mime_type.should.equal("application/pdf");
       count.should.eql(1);
@@ -245,7 +243,6 @@ describe('Test office presentation results', function() {
         throw err;
       }
 
-      document.should.have.property('datas');
       document.should.have.property('document_type', "document");
       document.metadatas.mime_type.should.equal("application/pdf");
       count.should.eql(1);
