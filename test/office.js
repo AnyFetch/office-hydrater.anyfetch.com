@@ -5,7 +5,7 @@ require('should');
 var office = require('../lib/');
 var anyfetchClient = require('anyfetch');
 
-describe('Test office results', function() {
+describe('Test office documents results', function() {
 
   it('returns the correct informations for text docx', function(done) {
   // Somme loffice version generate uppercase markup, some other generate lowercase.
@@ -95,7 +95,9 @@ describe('Test office results', function() {
       done();
     });
   });
+});
 
+describe('Test office calc results', function() {
   it('returns the correct informations for xls', function(done) {
     var document = {
       datas: {},
@@ -159,6 +161,9 @@ describe('Test office results', function() {
       done();
     });
   });
+});
+
+describe('Test office presentation results', function() {
 
   process.env.ANYFETCH_API_URL = 'http://localhost:1338';
   var count = 0;
@@ -244,7 +249,9 @@ describe('Test office results', function() {
       done();
     });
   });
+});
 
+describe('Test non office results', function() {
   it('returns the correct error the extension is invalid', function(done) {
     var document = {
       datas: {},
