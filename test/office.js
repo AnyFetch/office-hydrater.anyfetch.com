@@ -164,6 +164,9 @@ describe('Test office calc results', function() {
 });
 
 describe('Test office presentation results', function() {
+  // Presentation can't be exported to clean HTML using loffice.
+  // Therefore we only convert the presentation to PDF, and launch a new hydration phase on anyfetch.
+
 
   process.env.ANYFETCH_API_URL = 'http://localhost:1338';
   var count = 0;
