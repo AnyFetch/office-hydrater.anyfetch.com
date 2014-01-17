@@ -53,7 +53,28 @@ describe('Test office documents results', function() {
     });
   });
 
-  it('returns the correct informations for image doc', function(done) {
+  it('returns the correct informations for images in doc', function(done) {
+    var document = {
+      datas: {},
+      metadatas: {
+        path: "/samples/image.doc",
+      }
+    };
+
+    office(__dirname + document.metadatas.path, document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('[image stripped]');
+      done();
+    });
+  });
+
+  it('returns the correct informations for doc', function(done) {
     var document = {
       datas: {},
       metadatas: {
@@ -70,7 +91,6 @@ describe('Test office documents results', function() {
       document.should.have.property('document_type', "document");
       document.datas.should.have.property('html');
       document.datas.html.should.include('Sample document created with MS Word');
-      document.datas.html.should.include('[image stripped]');
       done();
     });
   });
