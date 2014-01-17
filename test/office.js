@@ -54,8 +54,7 @@ describe('Test office documents results', function() {
   });
 
   it('returns the correct informations for text RTF', function(done) {
-  // Somme loffice version generate uppercase markup, some other generate lowercase.
-  // We won't test this here.
+  // check if rtf and RTF are considered as the same extension
     var document = {
       datas: {},
       metadatas :{
