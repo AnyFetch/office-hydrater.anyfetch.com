@@ -170,6 +170,9 @@ describe('Test office results', function() {
   // Create a fake HTTP server
   var apiServer = anyfetchClient.debug.createTestApiServer(cb);
   apiServer.listen(1338);
+  after(function(){
+    apiServer.close();
+  });
 
   it('returns the correct informations for pptx', function(done) {
     count = 0;
@@ -242,7 +245,16 @@ describe('Test office results', function() {
     });
   });
 
-  after(function(){
-    apiServer.close();
+  it('returns the correct error the extension is invalid', function(done) {
+    var document = {
+      datas: {},
+      metadatas: {
+        path: "/samples/textrtf",
+      }
+    };
+    office(__dirname + document.metadatas.path, document, function(err) {
+      err.should.eql(new Error("Unknown file extension"));
+      done();
+    });
   });
 });
