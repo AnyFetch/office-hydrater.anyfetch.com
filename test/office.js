@@ -252,11 +252,24 @@ describe('Test office presentation results', function() {
 });
 
 describe('Test non office results', function() {
-  it('returns the correct error the extension is invalid', function(done) {
+  it('returns the correct error when their is no extension', function(done) {
     var document = {
       datas: {},
       metadatas: {
         path: "/samples/textrtf",
+      }
+    };
+    office(__dirname + document.metadatas.path, document, function(err) {
+      err.should.eql(new Error("No file extension"));
+      done();
+    });
+  });
+
+  it('returns the correct error when the extension is invalid', function(done) {
+    var document = {
+      datas: {},
+      metadatas: {
+        path: "/samples/text.fuck",
       }
     };
     office(__dirname + document.metadatas.path, document, function(err) {
