@@ -5,8 +5,8 @@ require('should');
 var office = require('../lib/');
 var anyfetchClient = require('anyfetch');
 
-describe('Test office documents results', function() {
 
+describe('Test office documents results', function() {
   it('returns the correct informations for text docx', function(done) {
   // Somme loffice version generate uppercase markup, some other generate lowercase.
   // We won't test this here.
@@ -271,8 +271,30 @@ describe('Test office presentation results', function() {
   });
 });
 
-describe('Test non office results', function() {
-  it('returns the correct error when their is no extension', function(done) {
+describe('The hydrater', function() {
+  it('should handle uppercase in the extensions', function(done) {
+  // rtf and RTF should be considered the same extension
+    var document = {
+      datas: {},
+      metadatas :{
+        path: "/samples/text.RTF",
+      }
+    };
+
+    office(__dirname + document.metadatas.path, document, function(err, document) {
+      if(err) {
+        throw err;
+      }
+
+      document.should.have.property('datas');
+      document.should.have.property('document_type', "document");
+      document.datas.should.have.property('html');
+      document.datas.html.should.include('purpose of this document');
+      done();
+    });
+  });
+
+  it('should return the correct error when there is no extension', function(done) {
     var document = {
       datas: {},
       metadatas: {
@@ -285,7 +307,7 @@ describe('Test non office results', function() {
     });
   });
 
-  it('returns the correct error when the extension is invalid', function(done) {
+  it('should return the correct error when the extension is invalid', function(done) {
     var document = {
       datas: {},
       metadatas: {
