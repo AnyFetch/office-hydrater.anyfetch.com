@@ -213,13 +213,10 @@ describe('Test office presentation results', function() {
       identifier: "azerty",
     };
 
-    office(__dirname + document.metadatas.path, document, function(err, document) {
-      if(err) {
-        throw err;
-      }
+    office(__dirname + document.metadatas.path, document, function(err) {
+      err.toString().should.include("Hydration should not complete");
 
-      document.should.have.property('document_type', "document");
-      document.metadatas.mime_type.should.equal("application/pdf");
+      // But a new document should be sent
       count.should.eql(1);
       done();
     });
@@ -236,13 +233,10 @@ describe('Test office presentation results', function() {
       identifier: "azertyu",
     };
 
-    office(__dirname + document.metadatas.path, document, function(err, document) {
-      if(err) {
-        throw err;
-      }
+    office(__dirname + document.metadatas.path, document, function(err) {
+      err.toString().should.include("Hydration should not complete");
 
-      document.should.have.property('document_type', "document");
-      document.metadatas.mime_type.should.equal("application/pdf");
+      // But a new document should be sent
       count.should.eql(1);
       done();
     });
@@ -258,13 +252,10 @@ describe('Test office presentation results', function() {
       access_token: "12345",
       identifier: "azertyui",
     };
-    office(__dirname + document.metadatas.path, document, function(err, document) {
-      if(err) {
-        throw err;
-      }
+    office(__dirname + document.metadatas.path, document, function(err) {
+      err.toString().should.include("Hydration should not complete");
 
-      document.should.have.property('document_type', "document");
-      document.metadatas.mime_type.should.equal("application/pdf");
+      // But a new document should be sent
       count.should.eql(1);
       done();
     });
