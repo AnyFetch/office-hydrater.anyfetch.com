@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "async": "0.2.x",
-    "cluestr-file-hydrater": "x.x.x",
+    "anyfetch-file-hydrater": "x.x.x",
     "newrelic": "1.x.x",
     "anyfetch": "0.x.x"
   },
