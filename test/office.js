@@ -58,7 +58,7 @@ describe('The hydrater', function() {
     var document = {
       datas: {},
       metadatas: {
-        path: "/samples/text.RTF",
+        path: "/samples/test.RTF",
       },
       access_token: "123",
       identifier: "azerty",
