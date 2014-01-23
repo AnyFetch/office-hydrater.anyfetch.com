@@ -1,4 +1,4 @@
-# Office 0.10 Cluestr Hydrater
+# Office 1.0.0 Cluestr Hydrater
 > Visit http://cluestr.com for details about Cluestr.
 
 Cluestr Hydrater for classic office files
