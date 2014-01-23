@@ -4,7 +4,14 @@
 Cluestr Hydrater for classic office files
 
 # How to install?
-Vagrant up everything (`vagrant up`, `vagrant ssh`).
+```sh
+sudo apt-get install python-software-properties
+sudo apt-add-repository ppa:libreoffice/libreoffice-4-1
+sudo apt-get update
+sudo apt-get install libreoffice -y
+npm install
+```
 
+You can now `npm test`.
 
 Support: `support@papiel.fr`.
