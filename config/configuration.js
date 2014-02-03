@@ -8,6 +8,12 @@ var default_port = 8000;
 
 var default_office_version = "4.0";
 
+// URL of pdf hydrater
+var default_pdf_hydrater_url = "pdf.hydrater.anyfetch.com";
+
+// URL of office hydrater
+var default_office_hydrater_url = 'http://office.hydrater.anyfetch.com';
+
 // Number of office instance to run simultaneously per cluster
 var default_concurrency = 1;
 
@@ -20,5 +26,7 @@ module.exports = {
   env: node_env,
   port: process.env.PORT || default_port,
   office_version: process.env.OFFICE_VERSION || default_office_version,
-  concurrency: process.env.OFFICE_CONCURRENCY || default_concurrency
+  concurrency: process.env.OFFICE_CONCURRENCY || default_concurrency,
+  pdf_hydrater: process.env.PDF_HYDRATER_URL || default_pdf_hydrater_url,
+  office_hydrater: process.env.OFFICE_HYDRATER_URL || default_office_hydrater_url
 };
