@@ -5,32 +5,49 @@ require('should');
 var fs = require('fs');
 var restify = require('restify');
 var request = require('supertest');
+var baseRequest = require('request');
 
 var officeHydrater = require('../app.js');
+var config = require('../config/configuration.js');
 
 
 describe('Test office results', function() {
   var pdfHydrater = restify.createServer();
+  pdfHydrater.use(restify.queryParser());
+  pdfHydrater.use(restify.bodyParser());
+
   pdfHydrater.post('/hydrate', function(req, res, next) {
     process.nextTick(function() {
-      request.post(req.callback, {pdf: true});
+      res.send(202);
+
+      var payload = {
+        url: req.params.callback,
+        json: {
+          pdf: true
+        }
+      };
+
+      baseRequest.post(payload, next);
     });
-    res.send(202);
-    next();
   });
   pdfHydrater.listen(1337);
 
 
   it.only('should call a pdf hydrater before sending results', function(done) {
-
+    // Update our pdf hydrater
+    config.pdf_hydrater_url = 'http://localhost:1337/hydrate';
+    config.office_hydrater_url = 'http://localhost:1338';
+    
     // Create fake initial server
     var core = restify.createServer();
+    core.use(restify.queryParser());
+    core.use(restify.bodyParser());
     core.get('/document', function(req, res, next) {
-      fs.createReadStream(__dirname + '/samples/text.rtf', res);
+      fs.createReadStream(__dirname + '/samples/text.rtf').pipe(res);
       next();
     });
     core.post('/callback', function(req, res, next) {
-      req.params.pdf.should.equal(true);
+      req.params.should.have.property('pdf', true);
 
       res.send(202);
       next();
