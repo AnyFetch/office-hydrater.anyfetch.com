@@ -1,5 +1,5 @@
 {
-  "name": "cluestr-hydrater-office",
+  "name": "anyfetch-office-hydrater",
   "version": "1.0.0",
   "author": "Julien Balian  <julien.balian@supinfo.com>",
   "contributors": [],
@@ -17,7 +17,7 @@
     "url": "https://github.com/Papiel/hydrater-office"
   },
   "keywords": [
-    "cluestr",
+    "anyfetch",
     "hydrater",
     "office"
   ],
