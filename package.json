@@ -25,7 +25,9 @@
     "async": "0.2.x",
     "anyfetch-file-hydrater": "x.x.x",
     "newrelic": "1.x.x",
-    "anyfetch": "0.x.x"
+    "anyfetch": "0.x.x",
+    "request": "~2.33.0",
+    "restify": "~2.6.1"
   },
   "devDependencies": {
     "mocha": "1.15.x",

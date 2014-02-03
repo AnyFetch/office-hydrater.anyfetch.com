@@ -5,16 +5,7 @@ require('should');
 var office = require('../lib/');
 
 
-describe('Test office results', function() {
-  // Presentation can't be exported to clean HTML using loffice.
-  // Therefore we convert to PDF, and launch a new hydration phase on anyfetch.
-
-});
-
-describe('The hydrater', function() {
-  
-
-
+describe('Office hydrater', function() {
   it('should return the correct error when there is no extension', function(done) {
     var document = {
       datas: {},
