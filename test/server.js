@@ -12,31 +12,43 @@ var config = require('../config/configuration.js');
 
 
 describe('Test office results', function() {
-  var pdfHydrater = restify.createServer();
-  pdfHydrater.use(restify.queryParser());
-  pdfHydrater.use(restify.bodyParser());
-
-  pdfHydrater.post('/hydrate', function(req, res, next) {
-    process.nextTick(function() {
-      res.send(202);
-
-      var payload = {
-        url: req.params.callback,
-        json: {
-          pdf: true
-        }
-      };
-
-      baseRequest.post(payload, next);
-    });
-  });
-  pdfHydrater.listen(1337);
-
-
-  it.only('should call a pdf hydrater before sending results', function(done) {
+  it.only('should call the pdf hydrater before sending results', function(done) {
     // Update our pdf hydrater
+    officeHydrater.listen(1339);
     config.pdf_hydrater_url = 'http://localhost:1337/hydrate';
-    config.office_hydrater_url = 'http://localhost:1338';
+    config.office_hydrater_url = 'http://localhost:1339';
+
+    var pdfHydrater = restify.createServer();
+    pdfHydrater.use(restify.queryParser());
+    pdfHydrater.use(restify.bodyParser());
+
+    pdfHydrater.post('/hydrate', function(req, res, next) {
+      baseRequest.get(req.params.file_path, function(err, res) {
+        if(err) {
+          return done(err);
+        }
+
+        // Check we have a valid PDF
+        try {
+          res.body.should.contain("Transparency/CS/DeviceRGB");
+        } catch(e) {
+          return done(e);
+        }
+        
+        var payload = {
+          url: req.params.callback,
+          json: {
+            pdf: true
+          }
+        };
+
+        baseRequest.post(payload, function(err) {
+          res.send(202);
+          next(err);
+        });
+      });
+    });
+    pdfHydrater.listen(1337);
     
     // Create fake initial server
     var core = restify.createServer();
@@ -52,7 +64,7 @@ describe('Test office results', function() {
       res.send(202);
       next();
 
-      done();
+      officeHydrater.close(done);
     });
 
     core.listen(1338);
