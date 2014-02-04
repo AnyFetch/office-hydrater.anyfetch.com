@@ -1,7 +1,7 @@
-# Office Cluestr Hydrater
-> Visit http://cluestr.com for details about Cluestr.
+# Office AnyFetch Hydrater
+> Visit http://anyfetch.com for details about AnyFetch.
 
-Cluestr Hydrater for classic office files
+AnyFetch Hydrater for classic office files
 
 # How to install?
 ```sh
