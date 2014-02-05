@@ -106,7 +106,7 @@ describe('Test office results', function() {
 
         // Check we have a valid PDF
         try {
-          res.body.should.contain("Transparency/CS/DeviceRGB");
+          res.body.should.containDeep("Transparency/CS/DeviceRGB");
         } catch(e) {
           return done(e);
         }
