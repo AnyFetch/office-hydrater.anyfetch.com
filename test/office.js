@@ -13,7 +13,15 @@ describe('Office hydrater', function() {
         path: "/samples/textrtf",
       }
     };
-    office(__dirname + document.metadatas.path, document, function(err) {
+
+    var changes = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+
+    office(__dirname + document.metadatas.path, document, changes, function(err) {
       err.should.eql(new Error("No file extension"));
       done();
     });
@@ -26,7 +34,14 @@ describe('Office hydrater', function() {
         path: "/samples/text.fuck",
       }
     };
-    office(__dirname + document.metadatas.path, document, function(err) {
+    var changes = {
+      metadatas: {},
+      user_access: [],
+      actions: {},
+      datas: {}
+    };
+
+    office(__dirname + document.metadatas.path, document, changes, function(err) {
       err.should.eql(new Error("Unknown file extension"));
       done();
     });
