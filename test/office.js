@@ -37,4 +37,18 @@ describe('Office hydrater', function() {
       done();
     });
   });
+
+  it('should return the correct error when their is no path', function(done) {
+    var document = {
+      datas: {},
+    };
+
+    var changes = anyfetchFileHydrater.defaultChanges();
+
+    office(__dirname + "/samples/text.rtf", document, changes, function(err, changes) {
+      changes.should.have.property("hydration_errored", true);
+      changes.should.have.property("hydration_error", "Missing metadatas.path");
+      done();
+    });
+  });
 });
