@@ -3,7 +3,7 @@
 require('should');
 
 var office = require('../lib/');
-
+var anyfetchFileHydrater = require('anyfetch-file-hydrater');
 
 describe('Office hydrater', function() {
   it('should return the correct error when there is no extension', function(done) {
@@ -14,12 +14,7 @@ describe('Office hydrater', function() {
       }
     };
 
-    var changes = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
+    var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
       err.should.eql(new Error("No file extension"));
@@ -34,12 +29,8 @@ describe('Office hydrater', function() {
         path: "/samples/text.fuck",
       }
     };
-    var changes = {
-      metadatas: {},
-      user_access: [],
-      actions: {},
-      datas: {}
-    };
+
+    var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
       err.should.eql(new Error("Unknown file extension"));

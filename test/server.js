@@ -49,7 +49,7 @@ describe('Test office results', function() {
       });
     });
     pdfHydrater.listen(1337);
-    
+
     // Create fake initial server
     var core = restify.createServer();
     core.use(restify.queryParser());
@@ -110,7 +110,7 @@ describe('Test office results', function() {
         } catch(e) {
           return done(e);
         }
-        
+
         core.close(function() {
           pdfHydrater.close(done);
         });
@@ -120,7 +120,7 @@ describe('Test office results', function() {
       });
     });
     pdfHydrater.listen(1337);
-    
+
     // Create fake initial server
     var core = restify.createServer();
     core.use(restify.queryParser());
