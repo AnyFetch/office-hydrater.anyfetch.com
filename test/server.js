@@ -68,9 +68,6 @@ describe('Test office results', function() {
         pdfHydrater.close(done);
       });
     });
-    core.patch('/callback', function(req, res, next) {
-      next();
-    });
 
 
     core.listen(1338);

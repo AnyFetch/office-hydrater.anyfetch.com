@@ -7,15 +7,13 @@ var config = require('./config/configuration.js');
 var office = require('./lib/');
 var handler = require('./lib/handler.js');
 
-if(config.env === "test") {
-  var logger = function() {};
-}
-
 var serverConfig = {
   concurrency: config.concurrency,
   hydrater_function: office,
-  logger: logger
 };
+if(config.env === "test") {
+  serverConfig.logger = function() {};
+}
 
 var server = anyfetchFileHydrater.createServer(serverConfig);
 server.get('/document', handler);
