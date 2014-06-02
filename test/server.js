@@ -68,6 +68,10 @@ describe('Test office results', function() {
         pdfHydrater.close(done);
       });
     });
+    core.patch('/callback', function(req, res, next) {
+      next();
+    });
+
 
     core.listen(1338);
     request(officeHydrater)
@@ -129,6 +133,7 @@ describe('Test office results', function() {
       fs.createReadStream(__dirname + '/samples/text.rtf').pipe(res);
       next();
     });
+
     core.listen(1338);
 
     request(officeHydrater)
