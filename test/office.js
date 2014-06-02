@@ -19,7 +19,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
-      err.should.eql(new Error("No file extension"));
+      err.should.eql(new hydrationError("No file extension"));
       done();
     });
   });
@@ -35,7 +35,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
-      err.should.eql(new Error("Unknown file extension"));
+      err.should.eql(new hydrationError("Unknown file extension : .fuck"));
       done();
     });
   });
