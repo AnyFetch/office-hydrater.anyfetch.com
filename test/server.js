@@ -69,6 +69,7 @@ describe('Test office results', function() {
       });
     });
 
+
     core.listen(1338);
     request(officeHydrater)
       .post("/hydrate")
@@ -129,6 +130,7 @@ describe('Test office results', function() {
       fs.createReadStream(__dirname + '/samples/text.rtf').pipe(res);
       next();
     });
+
     core.listen(1338);
 
     request(officeHydrater)
