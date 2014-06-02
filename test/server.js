@@ -77,7 +77,7 @@ describe('Test office results', function() {
         file_path: 'http://localhost:1338/document',
         callback: 'http://localhost:1338/callback',
         document: {
-          metadatas: {
+          metadata: {
             path: '/samples/text.rtf'
           }
         }
@@ -139,7 +139,7 @@ describe('Test office results', function() {
         file_path: 'http://localhost:1338/document',
         callback: 'http://localhost:1338/callback',
         document: {
-          metadatas: {
+          metadata: {
             path: '/samples/text.rtf'
           }
         }
