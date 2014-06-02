@@ -5,6 +5,8 @@ require('should');
 var office = require('../lib/');
 var anyfetchFileHydrater = require('anyfetch-file-hydrater');
 
+var hydrationError = anyfetchFileHydrater.hydrationError;
+
 describe('Office hydrater', function() {
   it('should return the correct error when there is no extension', function(done) {
     var document = {
@@ -17,7 +19,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
-      err.should.eql(new Error("No file extension"));
+      err.should.eql(new hydrationError("No file extension"));
       done();
     });
   });
@@ -33,7 +35,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadatas.path, document, changes, function(err) {
-      err.should.eql(new Error("Unknown file extension"));
+      err.should.eql(new hydrationError("Unknown file extension : .fuck"));
       done();
     });
   });
@@ -46,7 +48,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + "/samples/text.rtf", document, changes, function(err) {
-      err.should.eql(new Error("Missing metadatas.path"));
+      err.should.eql(new hydrationError("Missing metadatas.path"));
       done();
     });
   });

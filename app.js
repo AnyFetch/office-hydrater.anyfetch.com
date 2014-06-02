@@ -9,8 +9,11 @@ var handler = require('./lib/handler.js');
 
 var serverConfig = {
   concurrency: config.concurrency,
-  hydrater_function: office
+  hydrater_function: office,
 };
+if(config.env === "test") {
+  serverConfig.logger = function() {};
+}
 
 var server = anyfetchFileHydrater.createServer(serverConfig);
 server.get('/document', handler);
