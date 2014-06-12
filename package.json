@@ -14,7 +14,7 @@
   "main": "./lib/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papiel/office.hydrater.anyfetch.com"
+    "url": "https://github.com/AnyFetch/office.hydrater.anyfetch.com"
   },
   "keywords": [
     "anyfetch",
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "async": "0.9.x",
-    "anyfetch-file-hydrater": ">=0.2.15",
+    "anyfetch-file-hydrater": ">=0.2.17",
     "newrelic": "1.x.x",
     "anyfetch": "0.x.x",
     "request": "~2.33.0",
