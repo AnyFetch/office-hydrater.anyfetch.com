@@ -25,7 +25,7 @@
     "async": "0.9.x",
     "anyfetch-file-hydrater": ">=0.2.18",
     "newrelic": "1.x.x",
-    "anyfetch": "0.x.x",
+    "anyfetch": "^0.2.27",
     "request": "~2.33.0",
     "restify": "~2.6.1"
   },
