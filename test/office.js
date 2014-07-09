@@ -19,7 +19,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadata.path, document, changes, function(err) {
-      err.should.eql(new hydrationError("No file extension"));
+      err.should.eql(new hydrationError("Unknown file extension or content type"));
       done();
     });
   });
@@ -35,7 +35,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + document.metadata.path, document, changes, function(err) {
-      err.should.eql(new hydrationError("Unknown file extension : .fuck"));
+      err.should.eql(new hydrationError("Unknown file extension or content type"));
       done();
     });
   });
@@ -48,7 +48,7 @@ describe('Office hydrater', function() {
     var changes = anyfetchFileHydrater.defaultChanges();
 
     office(__dirname + "/samples/text.rtf", document, changes, function(err) {
-      err.should.eql(new hydrationError("Missing metadata.path"));
+      err.should.eql(new hydrationError("Unknown file extension or content type"));
       done();
     });
   });
