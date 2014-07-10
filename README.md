@@ -14,4 +14,8 @@ npm install
 
 You can now `npm test`.
 
+## Configuration
+If you wish, you can customize the PDF hydrater path using `PDF_HYDRATER_URL`.
+When deploying the hydrater, don't forget to set `OFFICE_HYDRATER_URL`.
+
 Support: `support@papiel.fr`.
