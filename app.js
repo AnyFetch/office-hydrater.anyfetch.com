@@ -1,7 +1,7 @@
 'use strict';
 
 // Load configuration and initialize server
-var anyfetchFileHydrater = require('anyfetch-file-hydrater');
+var anyfetchHydrater = require('anyfetch-hydrater');
 
 var config = require('./config/configuration.js');
 var office = require('./lib/');
@@ -15,7 +15,7 @@ if(config.env === "test") {
   serverConfig.logger = function() {};
 }
 
-var server = anyfetchFileHydrater.createServer(serverConfig);
+var server = anyfetchHydrater.createServer(serverConfig);
 server.get('/document', handler);
 
 // Expose the server
