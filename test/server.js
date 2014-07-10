@@ -22,7 +22,7 @@ describe('Test office results', function() {
   it('should call the pdf hydrater before sending results', function(done) {
     // Update our pdf hydrater
     officeHydrater.listen(1339);
-    config.pdf_hydrater_url = 'http://localhost:1337/hydrate';
+    config.pdf_hydrater_url = 'http://localhost:1337';
     config.office_hydrater_url = 'http://localhost:1339';
 
     var pdfHydrater = restify.createServer();
@@ -92,7 +92,7 @@ describe('Test office results', function() {
 
   it('should transform to PDF', function(done) {
     // Update our pdf hydrater
-    config.pdf_hydrater_url = 'http://localhost:1337/hydrate';
+    config.pdf_hydrater_url = 'http://localhost:1337';
     config.office_hydrater_url = 'http://localhost:1339';
 
     var pdfHydrater = restify.createServer();
