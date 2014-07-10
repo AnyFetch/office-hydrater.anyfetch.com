@@ -9,7 +9,7 @@ var default_port = 8000;
 var default_office_version = "4.0";
 
 // URL of pdf hydrater
-var default_pdf_hydrater_url = "http://pdf.hydrater.anyfetch.com/hydrate";
+var default_pdf_hydrater_url = "http://pdf.hydrater.anyfetch.com";
 
 // URL of office hydrater
 var default_office_hydrater_url = 'http://office.hydrater.anyfetch.com';
