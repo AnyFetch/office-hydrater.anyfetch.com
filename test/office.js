@@ -3,7 +3,7 @@
 require('should');
 
 var office = require('../lib/');
-var anyfetchHydrater = require('anyfetch-file-hydrater');
+var anyfetchHydrater = require('anyfetch-hydrater');
 
 var hydrationError = anyfetchHydrater.hydrationError;
 
