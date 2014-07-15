@@ -14,7 +14,7 @@
   "main": "./lib/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnyFetch/office.hydrater.anyfetch.com"
+    "url": "https://github.com/AnyFetch/office-hydrater.anyfetch.com"
   },
   "keywords": [
     "anyfetch",
