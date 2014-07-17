@@ -24,15 +24,15 @@
   "dependencies": {
     "async": "0.9.x",
     "anyfetch-hydrater": "^0.3.1",
-    "anyfetch": "^0.2.27",
-    "request": "~2.33.0",
-    "restify": "~2.6.1"
+    "anyfetch": "^1.0.7",
+    "request": "~2.37.0",
+    "restify": "~2.8.1"
   },
   "devDependencies": {
-    "mocha": "1.17.x",
-    "should": "3.1.x",
-    "supertest": "0.9.x",
-    "jshint": "2.4.x"
+    "mocha": "1.20.x",
+    "should": "4.0.x",
+    "supertest": "0.13.x",
+    "jshint": "2.5.x"
   },
   "licence": "MIT",
   "engines": {
