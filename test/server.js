@@ -2,10 +2,12 @@
 
 require('should');
 
+var async = require("async");
+var url = require('url');
+var rarity = require("rarity");
 var fs = require('fs');
 var restify = require('restify');
 var request = require('supertest');
-var baseRequest = require('request');
 
 var officeHydrater = require('../app.js');
 var config = require('../config/configuration.js');
@@ -30,22 +32,33 @@ describe('Test office results', function() {
     pdfHydrater.use(restify.bodyParser());
 
     pdfHydrater.post('/hydrate', function(req, res, next) {
-      baseRequest.get(req.params.file_path, function(err, res) {
+      async.waterfall([
+        function downloadFile(cb) {
+          var parts = url.parse(req.params.file_path);
+          request(parts.protocol + '//' + parts.host)
+            .get(parts.path)
+            .expect(200)
+            .end(rarity.slice(1, cb));
+        },
+        function sendResults(cb) {
+          var parts = url.parse(req.params.callback);
+
+          request(parts.protocol + '//' + parts.host)
+            .post(parts.path)
+            .send({
+              pdf: true
+            })
+            .end(rarity.slice(1, cb));
+        },
+        function sendData(cb) {
+          res.send(202);
+          cb();
+        }
+      ], function(err) {
         if(err) {
           return done(err);
         }
-
-        var payload = {
-          url: req.params.callback,
-          json: {
-            pdf: true
-          }
-        };
-
-        baseRequest.post(payload, function(err) {
-          res.send(202);
-          next(err);
-        });
+        next();
       });
     });
     pdfHydrater.listen(1337);
@@ -100,14 +113,18 @@ describe('Test office results', function() {
     pdfHydrater.use(restify.bodyParser());
 
     pdfHydrater.post('/hydrate', function(req, res, next) {
-      baseRequest.get(req.params.file_path, function(err, res) {
+      var parts = url.parse(req.params.file_path);
+      request(parts.protocol + '//' + parts.host)
+        .get(parts.path)
+        .expect(200)
+        .end(function(err, res) {
         if(err) {
           return done(err);
         }
 
         // Check we have a valid PDF
         try {
-          res.body.should.containDeep("Transparency/CS/DeviceRGB");
+          res.text.should.containDeep("Transparency/CS/DeviceRGB");
         } catch(e) {
           return done(e);
         }
