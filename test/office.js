@@ -5,7 +5,7 @@ require('should');
 var office = require('../lib/');
 var anyfetchHydrater = require('anyfetch-hydrater');
 
-var hydrationError = anyfetchHydrater.hydrationError;
+var HydrationError = anyfetchHydrater.HydrationError;
 
 describe('Office hydrater', function() {
   describe('with extension', function() {
@@ -20,7 +20,7 @@ describe('Office hydrater', function() {
       var changes = anyfetchHydrater.defaultChanges();
 
       office(__dirname + document.metadata.path, document, changes, function(err) {
-        err.should.eql(new hydrationError("Unknown file extension or content type"));
+        err.should.eql(new HydrationError("Unknown file extension or content type"));
         done();
       });
     });
@@ -36,7 +36,7 @@ describe('Office hydrater', function() {
       var changes = anyfetchHydrater.defaultChanges();
 
       office(__dirname + document.metadata.path, document, changes, function(err) {
-        err.should.eql(new hydrationError("Unknown file extension or content type"));
+        err.should.eql(new HydrationError("Unknown file extension or content type"));
         done();
       });
     });
@@ -49,7 +49,7 @@ describe('Office hydrater', function() {
       var changes = anyfetchHydrater.defaultChanges();
 
       office(__dirname + "/samples/text.rtf", document, changes, function(err) {
-        err.should.eql(new hydrationError("Unknown file extension or content type"));
+        err.should.eql(new HydrationError("Unknown file extension or content type"));
         done();
       });
     });
@@ -64,7 +64,7 @@ describe('Office hydrater', function() {
       var changes = anyfetchHydrater.defaultChanges();
 
       office(__dirname + "/samples/textrtf", document, changes, function(err) {
-        err.should.eql(new hydrationError("Unknown file extension or content type"));
+        err.should.eql(new HydrationError("Unknown file extension or content type"));
         done();
       });
     });
@@ -79,7 +79,7 @@ describe('Office hydrater', function() {
       var changes = anyfetchHydrater.defaultChanges();
 
       office(__dirname + "/samples/textrtf", document, changes, function(err) {
-        err.should.eql(new hydrationError("Unknown file extension or content type"));
+        err.should.eql(new HydrationError("Unknown file extension or content type"));
         done();
       });
     });
