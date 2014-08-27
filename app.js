@@ -4,12 +4,11 @@
 var anyfetchHydrater = require('anyfetch-hydrater');
 
 var config = require('./config/configuration.js');
-var office = require('./lib/');
 var handler = require('./lib/handler.js');
 
 var serverConfig = {
   concurrency: config.concurrency,
-  hydrater_function: office,
+  hydrater_function: './lib/index.js',
 };
 if(config.env === "test") {
   serverConfig.logger = function() {};
