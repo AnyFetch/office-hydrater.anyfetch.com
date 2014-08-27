@@ -8,7 +8,7 @@ var handler = require('./lib/handler.js');
 
 var serverConfig = {
   concurrency: config.concurrency,
-  hydrater_function: './lib/index.js',
+  hydrater_function: __dirname + '/lib/index.js',
 };
 if(config.env === "test") {
   serverConfig.logger = function() {};
