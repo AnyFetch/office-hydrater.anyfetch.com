@@ -32,6 +32,13 @@ describe('Test office results', function() {
     pdfHydrater.use(restify.bodyParser());
 
     pdfHydrater.post('/hydrate', function(req, res, next) {
+      try {
+        req.params.should.have.property('priority', -100);
+      }
+      catch(e) {
+        return done(e);
+      }
+
       async.waterfall([
         function downloadFile(cb) {
           var parts = url.parse(req.params.file_path);
@@ -87,6 +94,7 @@ describe('Test office results', function() {
     request(officeHydrater)
       .post("/hydrate")
       .send({
+        priority: 100,
         file_path: 'http://localhost:1338/document',
         callback: 'http://localhost:1338/callback',
         document: {
