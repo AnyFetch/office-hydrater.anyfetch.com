@@ -33,7 +33,7 @@ describe('Test office results', function() {
 
     pdfHydrater.post('/hydrate', function(req, res, next) {
       try {
-        req.params.should.have.property('priority', -100);
+        req.params.should.have.property('priority', 100);
       }
       catch(e) {
         return done(e);
