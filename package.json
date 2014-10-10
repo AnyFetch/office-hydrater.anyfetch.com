@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "anyfetch": "^1.0.7",
-    "anyfetch-hydrater": "1.0.13",
+    "anyfetch-hydrater": "1.0.14",
     "async": "0.9.x",
     "restify": "~2.8.1",
     "supertest": "0.13.x"
