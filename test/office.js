@@ -87,7 +87,8 @@ describe('Office hydrater', function() {
 
   describe('with error', function() {
     it("should return the correct error when loffice can't hydrate file", function(done) {
-      this.timeout(60000);
+      this.timeout(120000);
+
       var document = {
         metadata: {
           path: "/samples/errored.rtf"
