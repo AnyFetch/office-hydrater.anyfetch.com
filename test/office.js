@@ -85,6 +85,21 @@ describe('Office hydrater', function() {
     });
   });
 
+  describe('with error', function() {
+    it("should return the correct error when loffice can't hydrate file", function(done) {
+      this.timeout(60000)
+      var document = {
+        metadata: {
+          path: "/samples/errored.rtf"
+        }
+      };
 
+      var changes = anyfetchHydrater.defaultChanges();
 
+      office(__dirname + "/samples/errored.rtf", document, changes, function(err) {
+        err.should.eql(new HydrationError(":1: parser error : Document is empty\n�p\u0003\u0002�xr�d�gd�\u0006��p\n^\n"));
+        done();
+      });
+    });
+  });
 });
