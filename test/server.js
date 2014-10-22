@@ -9,11 +9,14 @@ var fs = require('fs');
 var restify = require('restify');
 var request = require('supertest');
 
-var officeHydrater = require('../app.js');
-var config = require('../config/configuration.js');
 
 
 describe('Test office results', function() {
+  // Update our pdf hydrater
+  process.env.PDF_HYDRATER_URL = 'http://localhost:1337';
+  process.env.OFFICE_HYDRATER_URL = 'http://localhost:1339';
+  var officeHydrater = require('../app.js');
+
   before(function() {
     officeHydrater.listen(1339);
   });
@@ -22,10 +25,6 @@ describe('Test office results', function() {
   });
 
   it('should call the pdf hydrater before sending results', function(done) {
-    // Update our pdf hydrater
-    officeHydrater.listen(1339);
-    process.env.PDF_HYDRATER_URL = 'http://localhost:1337';
-    process.env.OFFICE_HYDRATER_URL = 'http://localhost:1339';
 
     var pdfHydrater = restify.createServer();
     pdfHydrater.use(restify.queryParser());
@@ -88,9 +87,8 @@ describe('Test office results', function() {
         pdfHydrater.close(done);
       });
     });
-
-
     core.listen(1338);
+
     request(officeHydrater)
       .post("/hydrate")
       .send({

@@ -85,6 +85,22 @@ describe('Office hydrater', function() {
     });
   });
 
+  describe('with error', function() {
+    it("should return the correct error when loffice can't hydrate file", function(done) {
+      this.timeout(120000);
 
+      var document = {
+        metadata: {
+          path: "/samples/errored.rtf"
+        }
+      };
 
+      var changes = anyfetchHydrater.defaultChanges();
+
+      office(__dirname + "/samples/errored.rtf", document, changes, function(err) {
+        err.message.should.match(/Document is empty/i);
+        done();
+      });
+    });
+  });
 });
