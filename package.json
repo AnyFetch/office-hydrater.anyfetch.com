@@ -22,15 +22,15 @@
   ],
   "dependencies": {
     "anyfetch": "^1.0.7",
-    "anyfetch-hydrater": "1.0.14",
+    "anyfetch-hydrater": "^2.0.0",
     "async": "0.9.x",
     "restify": "~2.8.1",
-    "supertest": "0.13.x"
+    "supertest": "^0.15.0"
   },
   "devDependencies": {
-    "mocha": "1.20.x",
+    "mocha": "^2.0.1",
     "rarity": "2.1.x",
-    "should": "4.0.x"
+    "should": "^4.3.0"
   },
   "licence": "MIT",
   "engines": {
