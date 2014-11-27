@@ -18,6 +18,8 @@ describe('Test office results', function() {
   var officeHydrater = require('../app.js');
 
   before(function() {
+    var log = officeHydrater.log;
+    log.info = log.warn = log.error = function() {};
     officeHydrater.listen(1339);
   });
   after(function(done) {
