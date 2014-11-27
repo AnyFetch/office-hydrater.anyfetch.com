@@ -26,5 +26,6 @@ module.exports = {
   concurrency: process.env.OFFICE_CONCURRENCY || defaultConcurrency,
   pdfHydraterUrl: process.env.PDF_HYDRATER_URL || defaultPdfHydraterUrl,
   officeHydraterUrl: process.env.OFFICE_HYDRATER_URL || defaultOfficeHydraterUrl,
+  redisUrl: process.env.REDIS_URL,
   appName: process.env.APP_NAME || "office-hydrater"
 };

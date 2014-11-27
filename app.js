@@ -6,15 +6,9 @@ var anyfetchHydrater = require('anyfetch-hydrater');
 var config = require('./config/configuration.js');
 var handler = require('./lib/handler.js');
 
-var serverConfig = {
-  concurrency: config.concurrency,
-  hydrater_function: __dirname + '/lib/index.js',
-};
-if(config.env === "test") {
-  serverConfig.logger = function() {};
-}
+config.hydrater_function = __dirname + '/lib/index.js';
 
-var server = anyfetchHydrater.createServer(serverConfig);
+var server = anyfetchHydrater.createServer(config);
 server.get('/document', handler);
 
 // Expose the server
