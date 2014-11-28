@@ -27,5 +27,11 @@ module.exports = {
   pdfHydraterUrl: process.env.PDF_HYDRATER_URL || defaultPdfHydraterUrl,
   officeHydraterUrl: process.env.OFFICE_HYDRATER_URL || defaultOfficeHydraterUrl,
   redisUrl: process.env.REDIS_URL,
-  appName: process.env.APP_NAME || "office-hydrater"
+  appName: process.env.APP_NAME || "office-hydrater",
+
+  opbeat: {
+    organizationId: process.env.OPBEAT_ORGANIZATION_ID,
+    appId: process.env.OPBEAT_APP_ID,
+    secretToken: process.env.OPBEAT_SECRET_TOKEN
+  }
 };
