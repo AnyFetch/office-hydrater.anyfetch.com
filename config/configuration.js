@@ -23,9 +23,13 @@ if(nodeEnv === "production") {
 module.exports = {
   env: nodeEnv,
   port: process.env.PORT || defaultPort,
-  concurrency: process.env.OFFICE_CONCURRENCY || defaultConcurrency,
+
+  concurrency: process.env.CONCURRENCY || defaultConcurrency,
+  tasksPerProcess: process.env.TASKS_PER_PROCESS,
+
   pdfHydraterUrl: process.env.PDF_HYDRATER_URL || defaultPdfHydraterUrl,
   officeHydraterUrl: process.env.OFFICE_HYDRATER_URL || defaultOfficeHydraterUrl,
+
   redisUrl: process.env.REDIS_URL,
   appName: process.env.APP_NAME || "office-hydrater",
 
