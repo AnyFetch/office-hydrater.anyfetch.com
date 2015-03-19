@@ -1,2 +1,4 @@
-https://github.com/rricard/heroku-buildpack-dpkg
-https://github.com/heroku/heroku-buildpack-nodejs#diet
+https://github.com/heroku/heroku-buildpack-java.git
+https://github.com/ddollar/heroku-buildpack-apt
+https://github.com/AnyFetch/heroku-buildpack-libreoffice.git
+https://github.com/heroku/heroku-buildpack-nodejs
