@@ -7,7 +7,7 @@ services:
   - redis-server
 
 before_install:
-  - sudo add-apt-repository ppa:libreoffice/libreoffice-4-3 --yes
+  - sudo add-apt-repository ppa:libreoffice/libreoffice-5-0 --yes
   - sudo apt-get update
 
 install:
